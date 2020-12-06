@@ -13,6 +13,8 @@ fun main() {
     //adventOfCodeDay04Part2()
     //adventOfCodeDay05Part1()
     //adventOfCodeDay05Part2()
+    //adventOfCodeDay06Part1()
+    //adventOfCodeDay06Part2()
 }
 
 fun readInputFile(fileName: String) : File {
