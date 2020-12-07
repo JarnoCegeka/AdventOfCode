@@ -28,31 +28,36 @@ fun adventOfCodeDay07Part2() {
 
     val start = bagColors[shinyGold]!!
 
-    val total = bagsMethod(start, bagColors)
-    println(total)
+    bagsMethod(start, bagColors)
+
+    var fullTotal = 0
+    bagCounts.forEach { (c, i) ->
+        i.forEach { fullTotal += it }
+    }
+
+    println(fullTotal)
 }
 
+var bagCounts = mutableMapOf<String, MutableList<Int>>()
 private fun bagsMethod(mapToSearch: MutableMap<String, Int>, bagColors: MutableMap<String, MutableMap<String, Int>>, count: Int = 1): Int {
     if (mapToSearch.isEmpty()) return count
 
-    var fullCount = 0
-    val totalBagCountCurrentBag = mapToSearch.values.reduce { acc, i -> acc + i }
+    var fullColorCount = 0
     mapToSearch.forEach { (c, colorCount) ->
         val map = bagColors[c]!!
 
-        fullCount = count * colorCount
-
-        println("Before recursive - $c: $fullCount")
+        fullColorCount = count * colorCount
 
         if (map.isNotEmpty()) {
-            val recursive = bagsMethod(map, bagColors, fullCount)
-            fullCount += recursive
+            val recursive = bagsMethod(map, bagColors, fullColorCount)
+            bagCounts.computeIfAbsent(c) { mutableListOf() }.add(fullColorCount)
+            fullColorCount += recursive
+        } else {
+            bagCounts.computeIfAbsent(c) { mutableListOf() }.add(fullColorCount)
         }
-
-        println("After recursive - $c: $fullCount - ")
     }
 
-    return fullCount
+    return fullColorCount
 }
 
 private fun mapBagColors(lines: List<String>): MutableMap<String, MutableMap<String, Int>> {
