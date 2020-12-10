@@ -16,7 +16,7 @@ fun adventOfCodeDay10Part2() {
     input.add(input.maxOrNull()!! + 3)
     input.sort()
 
-    val mustHaves = determineMustHavesVoltages(input)
+    val mustHaves = determineMustHavesJolts(input)
     mustHaves.add(0,0)
     println("Must haves: $mustHaves")
 
@@ -25,9 +25,9 @@ fun adventOfCodeDay10Part2() {
         val current = mustHaves[iteration]
         val target = mustHaves[iteration+1]
 
-        val relevantVoltages = input.filter { it in (current + 1) .. target }
+        val relevantJolts = input.filter { it in (current + 1) .. target }
 
-        val numPossRange = countPossibleArrangements(target, current, relevantVoltages)
+        val numPossRange = countPossibleArrangements(target, current, relevantJolts)
         totalPos *= numPossRange
         println("$current - $target - $numPossRange")
     }
@@ -35,16 +35,16 @@ fun adventOfCodeDay10Part2() {
     println(totalPos)
 }
 
-fun determineMustHavesVoltages(voltages: List<Int>): MutableList<Int> {
-    val gapBelow = voltages
-        .filter { !voltages.contains(it - 1) }
-        .filter { !voltages.contains(it - 2) }
-        .filter { voltages.contains(it - 3) }
+fun determineMustHavesJolts(jolts: List<Int>): MutableList<Int> {
+    val gapBelow = jolts
+        .filter { !jolts.contains(it - 1) }
+        .filter { !jolts.contains(it - 2) }
+        .filter { jolts.contains(it - 3) }
 
-    val gapAbove = voltages
-        .filter { !voltages.contains(it + 1) }
-        .filter { !voltages.contains(it + 2) }
-        .filter { voltages.contains(it + 3) }
+    val gapAbove = jolts
+        .filter { !jolts.contains(it + 1) }
+        .filter { !jolts.contains(it + 2) }
+        .filter { jolts.contains(it + 3) }
 
     return gapBelow.union(gapAbove).toSortedSet().toMutableList()
 }
