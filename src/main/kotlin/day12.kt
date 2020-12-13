@@ -1,6 +1,6 @@
 import kotlin.math.abs
 
-val input = readInputFile("InputDay12.txt").readLines().map { Pair(it.take(1), it.drop(1).toInt()) }
+private val input = readInputFile("InputDay12.txt").readLines().map { Pair(it.take(1), it.drop(1).toInt()) }
 fun adventOfCodeDay12Part1() {
     println(part1(input))
 }
