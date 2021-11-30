@@ -1,5 +1,9 @@
-fun adventOfCodeDay06Part1() {
-    val fileLines = readInputFileLines("InputDay06.txt")
+package com.jarnocegeka.year2020
+
+import com.jarnocegeka.utils.readInputFileLines
+
+fun adventOfCodeYear2020Day06Part1() {
+    val fileLines = readInputFileLines("InputYear2020Day06.txt")
 
     val yesForEachGroup = mutableListOf<Int>()
     var countPerGroup = 0
@@ -24,8 +28,8 @@ fun adventOfCodeDay06Part1() {
     println("Total answered questions: $total")
 }
 
-fun adventOfCodeDay06Part2() {
-    val fileLines = readInputFileLines("InputDay06.txt")
+fun adventOfCodeYear2020Day06Part2() {
+    val fileLines = readInputFileLines("InputYear2020Day06.txt")
 
     val yesForEachGroup = mutableListOf<Int>()
     var personCount = 0

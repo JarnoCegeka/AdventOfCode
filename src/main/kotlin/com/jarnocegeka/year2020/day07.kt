@@ -1,5 +1,9 @@
-fun adventOfCodeDay07Part1() {
-    val fileLines = readInputFileLines("InputDay07.txt")
+package com.jarnocegeka.year2020
+
+import com.jarnocegeka.utils.readInputFileLines
+
+fun adventOfCodeYear2020Day07Part1() {
+    val fileLines = readInputFileLines("InputYear2020Day07.txt")
     val bagColors = mapBagColors(fileLines)
 
     val shinyGold = "shiny gold"
@@ -21,8 +25,8 @@ fun adventOfCodeDay07Part1() {
     println(keysThatContainShinyGold.size)
 }
 
-fun adventOfCodeDay07Part2() {
-    val fileLines = readInputFileLines("InputDay07.txt")
+fun adventOfCodeYear2020Day07Part2() {
+    val fileLines = readInputFileLines("InputYear2020Day07.txt")
     val bagColors = mapBagColors(fileLines)
     val shinyGold = "shiny gold"
 

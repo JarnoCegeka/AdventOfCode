@@ -1,8 +1,12 @@
+package com.jarnocegeka.year2020
+
+import com.jarnocegeka.utils.readInputFileLines
+
 private const val OCCUPIED = '#'
 private const val EMPTY = 'L'
 private const val FLOOR = '.'
 
-fun adventOfCodeDay11Part1() {
+fun adventOfCodeYear2020Day11Part1() {
     val ferryLayout = ferryLayout()
 
     var newFerryLayout = applySeatRulesForPart1(ferryLayout)
@@ -74,7 +78,7 @@ private fun adjacentSeatsForPart1(row: Int, col: Int, ferryLayout: Array<CharArr
     return adjacentSeats
 }
 
-fun adventOfCodeDay11Part2() {
+fun adventOfCodeYear2020Day11Part2() {
     val ferryLayout = ferryLayout()
 
     var newFerryLayout = applySeatRulesForPart2(ferryLayout)
@@ -189,7 +193,7 @@ private fun printChanges(ferryLayout: Array<CharArray>, prevFerryLayout: Array<C
 }
 
 private fun ferryLayout(): Array<CharArray> {
-    val input = readInputFileLines("InputDay11.txt")
+    val input = readInputFileLines("InputYear2020Day11.txt")
     val ferryLayout = mutableListOf<CharArray>()
 
     input.forEach {

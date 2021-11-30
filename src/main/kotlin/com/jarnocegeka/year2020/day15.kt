@@ -1,15 +1,19 @@
-fun adventOfCodeDay15Part1() {
+package com.jarnocegeka.year2020
+
+import com.jarnocegeka.utils.readInputFileLines
+
+fun adventOfCodeYear2020Day15Part1() {
     val number2020 = calculateNumberForPosition(2020)
     println("The 2020th number is $number2020")
 }
 
-fun adventOfCodeDay15Part2() {
+fun adventOfCodeYear2020Day15Part2() {
     val number2020 = calculateNumberForPosition(30000000)
     println("The 30000000th number is $number2020")
 }
 
 private fun calculateNumberForPosition(num: Int): Int {
-    val input = readInputFileLines("InputDay15.txt").map { it.split(",") }.flatMap { it.toList() }.map { it.toInt() }
+    val input = readInputFileLines("InputYear2020Day15.txt").map { it.split(",") }.flatMap { it.toList() }.map { it.toInt() }
     val lastSpokenNumberIndexes = mutableMapOf<Int, MutableList<Int>>()
     val array = IntArray(num+5)
 

@@ -1,11 +1,14 @@
+package com.jarnocegeka.year2020
+
+import com.jarnocegeka.utils.readInputFile
 import kotlin.math.abs
 
-private val input = readInputFile("InputDay12.txt").readLines().map { Pair(it.take(1), it.drop(1).toInt()) }
-fun adventOfCodeDay12Part1() {
+private val input = readInputFile("InputYear2020Day12.txt").readLines().map { Pair(it.take(1), it.drop(1).toInt()) }
+fun adventOfCodeYear2020Day12Part1() {
     println(part1(input))
 }
 
-fun adventOfCodeDay12Part2() {
+fun adventOfCodeYear2020Day12Part2() {
     println(part2(input))
 }
 

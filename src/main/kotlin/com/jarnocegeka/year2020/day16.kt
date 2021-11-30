@@ -1,4 +1,9 @@
-fun adventOfCodeDay16Part1() {
+package com.jarnocegeka.year2020
+
+import com.jarnocegeka.utils.readInputFile
+import com.jarnocegeka.utils.readInputFileLines
+
+fun adventOfCodeYear2020Day16Part1() {
     val ticketInput = ticketInput()
 
     val allRanges = ticketInput.ticketFields.values.flatMap { it.toList() }
@@ -21,7 +26,7 @@ private fun isInRange(num: Int, range: Pair<Int, Int>): Boolean {
 }
 
 private fun ticketInput(): TicketInput {
-    val input = readInputFileLines("InputDay16.txt")
+    val input = readInputFileLines("InputYear2020Day16.txt")
 
     val indexOfYourTicket = input.indexOf("your ticket:")
     val indexOfNearbyTickets = input.indexOf("nearby tickets:")
@@ -50,12 +55,12 @@ private fun ticketInput(): TicketInput {
 
 private data class TicketInput(val ticketFields: Map<String, List<Pair<Int, Int>>>, val yourTicketNumbers: List<Int>, val nearbyTicketNumbers: List<List<Int>>)
 
-fun adventOfCodeDay16Part2() {
+fun adventOfCodeYear2020Day16Part2() {
     println(executePart2())
 }
 
 private fun executePart2(): Long {
-    val input = readInputFile("InputDay16.txt")
+    val input = readInputFile("InputYear2020Day16.txt")
     var state = 0
     val rules = mutableSetOf<Rule>()
     val lines = input.readLines()

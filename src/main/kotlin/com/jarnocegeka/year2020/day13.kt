@@ -1,5 +1,9 @@
-private val input = readInputFile("InputDay13.txt").readLines()
-fun adventOfCodeDay13Part1() {
+package com.jarnocegeka.year2020
+
+import com.jarnocegeka.utils.readInputFile
+
+private val input = readInputFile("InputYear2020Day13.txt").readLines()
+fun adventOfCodeYear2020Day13Part1() {
     calculateEarliestBus()
 }
 
@@ -25,7 +29,7 @@ private fun calculateEarliestBus() {
     println("Result: $result")
 }
 
-fun adventOfCodeDay13Part2() {
+fun adventOfCodeYear2020Day13Part2() {
     calculateSubsequentBusses()
 }
 

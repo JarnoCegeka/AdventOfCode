@@ -1,5 +1,9 @@
-fun adventOfCodeDay02Part1() {
-    val file = readInputFile("InputDay02.txt")
+package com.jarnocegeka.year2020
+
+import com.jarnocegeka.utils.readInputFile
+
+fun adventOfCodeYear2020Day02Part1() {
+    val file = readInputFile("InputYear2020Day02.txt")
 
     var validPwCount = 0
     file.forEachLine {
@@ -17,8 +21,8 @@ fun adventOfCodeDay02Part1() {
     println(validPwCount)
 }
 
-fun adventOfCodeDay02Part2() {
-    val file = readInputFile("InputDay02.txt")
+fun adventOfCodeYear2020Day02Part2() {
+    val file = readInputFile("InputYear2020Day02.txt")
 
     var validPwCount = 0
     file.forEachLine {

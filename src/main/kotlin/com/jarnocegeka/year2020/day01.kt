@@ -1,5 +1,9 @@
-fun adventOfCodeDay01Part1() {
-    val lines = readInputFileLines("InputDay01.txt")
+package com.jarnocegeka.year2020
+
+import com.jarnocegeka.utils.readInputFileLines
+
+fun adventOfCodeYear2020Day01Part1() {
+    val lines = readInputFileLines("InputYear2020Day01.txt")
 
     for (i in lines) l@{
         for (j in lines.subList(1, lines.size)) {
@@ -12,8 +16,8 @@ fun adventOfCodeDay01Part1() {
     }
 }
 
-fun adventOfCodeDay01Part2() {
-    val lines = readInputFileLines("InputDay01.txt")
+fun adventOfCodeYear2020Day01Part2() {
+    val lines = readInputFileLines("InputYear2020Day01.txt")
 
     for (i in lines) {
         for (j in lines.subList(1, lines.size)) {

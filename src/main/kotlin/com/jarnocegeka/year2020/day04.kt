@@ -1,19 +1,22 @@
+package com.jarnocegeka.year2020
+
+import com.jarnocegeka.utils.readInputFileLines
 import java.lang.Exception
 import java.util.*
 import java.util.function.Predicate
 import kotlin.text.Regex.Companion.fromLiteral
 
 val requiredFieldsPart1 = listOf("byr", "ecl", "eyr", "hcl", "hgt", "iyr", "pid")
-fun adventOfCodeDay04Part1() {
-    val fileLines = readInputFileLines("InputDay04.txt")
+fun adventOfCodeYear2020Day04Part1() {
+    val fileLines = readInputFileLines("InputYear2020Day04.txt")
     val passwords = generatePasswords(fileLines)
 
     val validPasswords = passwords.filter { hasAllRequiredFields(it) }.count()
     println(validPasswords)
 }
 
-fun adventOfCodeDay04Part2() {
-    val fileLines = readInputFileLines("InputDay04.txt")
+fun adventOfCodeYear2020Day04Part2() {
+    val fileLines = readInputFileLines("InputYear2020Day04.txt")
     val passwords = generatePasswords(fileLines)
 
     val validPasswords = passwords.filter { hasAllRequiredFields(it) }.filter { allPairsValid(it) }.count()

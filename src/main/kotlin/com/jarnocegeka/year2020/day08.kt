@@ -1,9 +1,13 @@
+package com.jarnocegeka.year2020
+
+import com.jarnocegeka.utils.readInputFileLines
+
 const val ACC = "acc"
 const val JMP = "jmp"
 const val NOP = "nop"
-val fileLines = readInputFileLines("InputDay08.txt").toMutableList()
+val fileLines = readInputFileLines("InputYear2020Day08.txt").toMutableList()
 
-fun adventOfCodeDay08Part1() {
+fun adventOfCodeYear2020Day08Part1() {
     val bug = runProgram()
     println("Accumulator: ${bug.accumulator}")
 }
@@ -34,7 +38,7 @@ private fun runProgram(listToCheck: List<String> = fileLines): Bug {
     return Bug("", currentIndex, accumulator)
 }
 
-fun adventOfCodeDay08Part2() {
+fun adventOfCodeYear2020Day08Part2() {
     var indexToCheck = 0
     var changedInstructionList: List<String>
     var bug = Bug()

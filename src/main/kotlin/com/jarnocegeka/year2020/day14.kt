@@ -1,6 +1,9 @@
+package com.jarnocegeka.year2020
+
+import com.jarnocegeka.utils.readInputFileLines
 import kotlin.math.pow
 
-fun adventOfCodeDay14Part1() {
+fun adventOfCodeYear2020Day14Part1() {
     val maskInput = maskInput()
 
     val memoryValues = mutableMapOf<Long, Long>()
@@ -16,7 +19,7 @@ fun adventOfCodeDay14Part1() {
     println("Total sum of memory: $sum")
 }
 
-fun adventOfCodeDay14Part2() {
+fun adventOfCodeYear2020Day14Part2() {
     val maskInput = maskInput()
 
     val memoryValues = mutableMapOf<Long, Long>()
@@ -80,7 +83,7 @@ private fun findNextCombo(floatingBinary: String, firstCount: Int, comboStarter:
 private fun maskInput(): Map<String, List<Pair<Long, Long>>> {
     val maskMap = mutableMapOf<String, MutableList<Pair<Long, Long>>>()
     var currentMask = ""
-    readInputFileLines("InputDay14.txt").forEach {
+    readInputFileLines("InputYear2020Day14.txt").forEach {
         if (it.startsWith("mask")) {
             currentMask = it.substringAfter(" = ")
             maskMap[currentMask] = mutableListOf()

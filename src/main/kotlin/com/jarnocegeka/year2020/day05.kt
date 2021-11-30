@@ -1,5 +1,9 @@
-fun adventOfCodeDay05Part1() {
-    val file = readInputFile("InputDay05.txt")
+package com.jarnocegeka.year2020
+
+import com.jarnocegeka.utils.readInputFile
+
+fun adventOfCodeYear2020Day05Part1() {
+    val file = readInputFile("InputYear2020Day05.txt")
 
     var highestId = 0
     file.forEachLine {
@@ -13,8 +17,8 @@ fun adventOfCodeDay05Part1() {
     println("Highest ID: $highestId")
 }
 
-fun adventOfCodeDay05Part2() {
-    val file = readInputFile("InputDay05.txt")
+fun adventOfCodeYear2020Day05Part2() {
+    val file = readInputFile("InputYear2020Day05.txt")
 
     val idList = mutableListOf<Int>()
     file.forEachLine {

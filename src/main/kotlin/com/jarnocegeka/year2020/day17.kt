@@ -1,5 +1,9 @@
-fun adventOfCodeDay17Part1() {
-    val lines = readInputFileLines("InputDay17.txt").map { it.toList() }
+package com.jarnocegeka.year2020
+
+import com.jarnocegeka.utils.readInputFileLines
+
+fun adventOfCodeYear2020Day17Part1() {
+    val lines = readInputFileLines("InputYear2020Day17.txt").map { it.toList() }
     val grid = mutableSetOf<Triple<Int, Int, Int>>()
     for (y in lines.indices) {
         for (x in lines[0].indices) {
@@ -19,8 +23,8 @@ fun adventOfCodeDay17Part1() {
     println(grid.size)
 }
 
-fun adventOfCodeDay17Part2() {
-    val lines = readInputFileLines("InputDay17.txt").map { it.toList() }
+fun adventOfCodeYear2020Day17Part2() {
+    val lines = readInputFileLines("InputYear2020Day17.txt").map { it.toList() }
     val grid = mutableSetOf<Quad<Int, Int, Int, Int>>()
     for (y in lines.indices) {
         for (x in lines[0].indices) {

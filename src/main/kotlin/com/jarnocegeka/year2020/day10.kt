@@ -1,5 +1,9 @@
-fun adventOfCodeDay10Part1() {
-    val inputV1 = readInputFileLines("InputDay10.txt").map { it.toInt() }.toMutableList()
+package com.jarnocegeka.year2020
+
+import com.jarnocegeka.utils.readInputFileLines
+
+fun adventOfCodeYear2020Day10Part1() {
+    val inputV1 = readInputFileLines("InputYear2020Day10.txt").map { it.toInt() }.toMutableList()
     inputV1.add(inputV1.maxOrNull()!! + 3)
     val input = inputV1.sorted()
     val joltDifferences = joltDifferences(input)
@@ -11,8 +15,8 @@ fun adventOfCodeDay10Part1() {
     println("Result: $result")
 }
 
-fun adventOfCodeDay10Part2() {
-    val input = readInputFileLines("InputDay10.txt").map { it.toInt() }.toMutableList()
+fun adventOfCodeYear2020Day10Part2() {
+    val input = readInputFileLines("InputYear2020Day10.txt").map { it.toInt() }.toMutableList()
     input.add(input.maxOrNull()!! + 3)
     input.sort()
 
