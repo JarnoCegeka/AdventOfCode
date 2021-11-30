@@ -1,9 +1,13 @@
+package com.jarnocegeka.year2020
+
+import com.jarnocegeka.utils.readInputFileLines
+
 fun adventOfCodeDay18Part1() {
-    println(readInputFileLines("InputDay18.txt").map { calculate(it, evaluateStackNoPrecedence) }.sum().toString())
+    println(readInputFileLines("InputYear2020Day18.txt").map { calculate(it, evaluateStackNoPrecedence) }.sum().toString())
 }
 
 fun adventOfCodeDay18Part2() {
-    println(readInputFileLines("InputDay18.txt").map { calculate(it, evaluateStackPlusPrecedence) }.sum().toString())
+    println(readInputFileLines("InputYear2020Day18.txt").map { calculate(it, evaluateStackPlusPrecedence) }.sum().toString())
 }
 
 private fun calculate(formula: String, evalFunc: (Stack<String>) -> Unit): Long {

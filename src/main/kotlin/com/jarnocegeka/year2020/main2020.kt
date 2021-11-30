@@ -35,4 +35,8 @@ fun main() {
 //    adventOfCodeYear2020Day16Part2()
 //    adventOfCodeYear2020Day17Part1()
 //    adventOfCodeYear2020Day17Part2()
+//    adventOfCodeYear2020Day18Part1()
+//    adventOfCodeYear2020Day18Part2()
+//    adventOfCodeYear2020Day19Part1()
+//    adventOfCodeYear2020Day19Part2()
 }

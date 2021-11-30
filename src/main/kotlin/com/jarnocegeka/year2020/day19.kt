@@ -1,13 +1,17 @@
+package com.jarnocegeka.year2020
+
+import com.jarnocegeka.utils.readInputFileLines
+
 fun adventOfCodeDay19Part1() {
     checkInput()
 }
 
 fun adventOfCodeDay19Part2() {
-    readInputFileLines("InputDay18.txt")
+    readInputFileLines("InputYear2020Day19.txt")
 }
 
 fun checkInput() {
-    val input = readInputFileLines("InputDay19.txt")
+    val input = readInputFileLines("InputYear2020Day19.txt")
     val blankLine = input.indexOfFirst { it.isBlank() }
     val rulesTxt = input.subList(0, blankLine)
     val messages = input.subList(blankLine+1, input.size)
