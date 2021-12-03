@@ -11,3 +11,16 @@ fun readInputFile(fileName: String): File {
 fun readInputFileLines(fileName: String): List<String> {
     return readInputFile(fileName).readLines()
 }
+
+fun binaryToDecimal(number: String): Long {
+    var result: Long = 0
+    var bit = 0
+    var n: Int = number.length - 1
+    while (n >= 0) {
+        if (number[n] == '1') result += (1 shl (bit))
+        n -= 1
+        bit += 1
+    }
+
+    return result
+}
