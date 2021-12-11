@@ -1,5 +1,6 @@
 package com.jarnocegeka.year2021
 
+import com.jarnocegeka.model.Point
 import com.jarnocegeka.utils.readInputFileLines
 
 fun adventOfCodeYear2021Day05Part1() {
@@ -40,7 +41,6 @@ fun toPoint(pointString: String): Point {
     return Point(pointValues[0], pointValues[1])
 }
 
-data class Point(val x: Int, val y: Int)
 data class Line(val startPoint: Point, val endPoint: Point) {
     private fun isHorizontal(): Boolean {
         return startPoint.y == endPoint.y
