@@ -37,7 +37,7 @@ class OctopusMap(underlying: MutableMap<Point, Int>) : MutableMap<Point, Int> by
                 val value = compute(current) { _, v -> v!! + 1 }!!
                 if (value > 9) {
                     flashers.add(current)
-                    current.adjacents().filter { containsKey(it) && !flashers.contains(it) }
+                    current.neighbours().filter { containsKey(it) && !flashers.contains(it) }
                         .forEach { octopusesToIncrease.add(it) }
                 }
             }
