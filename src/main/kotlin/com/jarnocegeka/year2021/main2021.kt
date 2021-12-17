@@ -33,6 +33,8 @@ fun main() {
 //    adventOfCodeYear2021Day15Part2()
 //    adventOfCodeYear2021Day16Part1()
 //    adventOfCodeYear2021Day16Part2()
-    adventOfCodeYear2021Day17Part1()
+//    adventOfCodeYear2021Day17Part1()
 //    adventOfCodeYear2021Day17Part2()
+    adventOfCodeYear2021Day18Part1()
+//    adventOfCodeYear2021Day18Part2()
 }
