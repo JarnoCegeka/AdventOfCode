@@ -2,7 +2,7 @@ package com.jarnocegeka.year2021
 
 import com.jarnocegeka.utils.readInputFileLines
 
-typealias Point = Pair<Int, Int>
+typealias PointDay15 = Pair<Int, Int>
 
 fun adventOfCodeYear2021Day15Part1() {
     val lines = readInputFileLines("InputYear2021Day15.txt")
@@ -35,7 +35,7 @@ private fun enlargeRow(xs: List<Int>) = xs.map { new ->
     }
 }
 
-private tailrec fun solveRecursive(input: List<List<Int>>, grid: Map<Point, Int>): Int {
+private tailrec fun solveRecursive(input: List<List<Int>>, grid: Map<PointDay15, Int>): Int {
     val w = input.first().size
     val h = input.size
 
