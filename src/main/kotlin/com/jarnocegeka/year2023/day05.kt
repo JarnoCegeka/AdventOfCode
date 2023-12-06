@@ -2,7 +2,6 @@ package com.jarnocegeka.year2023
 
 import com.jarnocegeka.utils.readInputFileLines
 
-
 fun adventOfCodeYear2023Day05Part1() {
     val lines = readInputFileLines("InputYear2023Day05.txt")
     val almanacInfo = splitToAlmanacInfo(lines)
@@ -18,32 +17,9 @@ fun adventOfCodeYear2023Day05Part2() {
     val almanacInfo = splitToAlmanacInfo(lines)
     val seeds = getSeeds(almanacInfo[0])
     val productionSteps = mapToProductionSteps(almanacInfo)
+    val globalMin = findGlobalMin(seeds, productionSteps)
 
-    var lowestDestination = productionSteps.reversed().first().sourceOfTheLowestDestination()
-    var lowestLocation = productionSteps.reversed().first().determineLocationNumber(lowestDestination)
-    var lowestSeedFound = false
-    while (!lowestSeedFound) {
-        val startingPointForLowestLocationInMappings = startingPointOfLowest(productionSteps.reversed(), lowestDestination)
-        lowestLocation = determineLocation(startingPointForLowestLocationInMappings, productionSteps)
-        lowestSeedFound = seeds.any { it.contains(startingPointForLowestLocationInMappings) }
-        lowestDestination + 1
-    }
-
-//    println()
-//    val pathToLowestSeed = determineLocation(lowestSeed, productionSteps)
-
-    println("Result: $lowestLocation")
-}
-
-private fun startingPointOfLowest(productionSteps: List<ProductionStep>, lowestDestination: Long): Long {
-    if (productionSteps.size == 1) {
-        return productionSteps.first().determineSource(lowestDestination)
-    }
-
-    val productionStepsSubList = productionSteps.subList(1, productionSteps.size)
-    val newLowestDestination = productionSteps.first().determineSource(lowestDestination)
-
-    return startingPointOfLowest(productionStepsSubList, newLowestDestination)
+    println("Result: $globalMin")
 }
 
 private val whiteSpaceRegex = Regex("\\s+")
@@ -107,32 +83,39 @@ private fun determineLocation(seed: Long, productionSteps: List<ProductionStep>)
     return location
 }
 
-private class SeedRange(val startSeed: Long, val seedCount: Long = 0) {
-    fun contains(seed: Long): Boolean = seed >= startSeed && seed <= (startSeed + seedCount) - 1
+private fun findGlobalMin(seedRanges: List<SeedRange>, productionSteps: List<ProductionStep>): Long {
+    val globalMin = Long.MAX_VALUE
+    return seedRanges.minOf { minOf(globalMin, findMin(it.range.first, it.range.last - it.range.first, productionSteps)) }
+}
+
+private fun findMin(start: Long, length: Long, productionSteps: List<ProductionStep>): Long {
+    if (length == 1L) return minOf(determineLocation(start, productionSteps), determineLocation(start + 1, productionSteps))
+
+    val stepSize = length / 2
+    val middle = start + stepSize
+
+    val startLocation = determineLocation(start, productionSteps)
+    val middleLocation = determineLocation(middle, productionSteps)
+    val endLocation = determineLocation(start + length, productionSteps)
+
+    var foundMin = Long.MAX_VALUE
+    if (startLocation + stepSize != middleLocation) foundMin = findMin(start, stepSize, productionSteps)
+    if (middleLocation + (length - stepSize) != endLocation) foundMin = minOf(foundMin, findMin(middle, (length - stepSize), productionSteps))
+
+    return foundMin
+}
+
+private class SeedRange(startSeed: Long, seedCount: Long = 0, val range: LongRange = LongRange(startSeed, startSeed + seedCount - 1)) {
+    fun contains(seed: Long): Boolean = range.contains(seed)
 }
 
 private class ProductionStep(val id: String, val productionMappings: List<ProductionMapping>) {
     fun determineLocationNumber(seed: Long): Long {
         return productionMappings.firstOrNull { it.isWithinSourceRange(seed) }?.calculateDestination(seed) ?: seed
     }
-
-    fun determineSource(destination: Long): Long {
-        return productionMappings.firstOrNull { it.isDestinationSourceWithinSourceRange(destination) }?.calculateSource(destination) ?: destination
-    }
-
-    fun sourceOfTheLowestDestination(): Long {
-        val lowest = productionMappings.minByOrNull { it.minDestination }?.sourceRange?.first ?: -69
-        return lowest
-    }
 }
 
-private class ProductionMapping(val sourceRange: LongRange, val offset: Long, val minDestination: Long = sourceRange.first + offset) {
+private class ProductionMapping(val sourceRange: LongRange, val offset: Long) {
     fun isWithinSourceRange(source: Long): Boolean = sourceRange.contains(source)
-    fun isDestinationSourceWithinSourceRange(destination: Long): Boolean = sourceRange.contains(destination - offset)
-    fun calculateDestination(source: Long): Long {
-        return source + offset
-    }
-    fun calculateSource(destination: Long): Long {
-        return destination - offset
-    }
+    fun calculateDestination(source: Long): Long = source + offset
 }
