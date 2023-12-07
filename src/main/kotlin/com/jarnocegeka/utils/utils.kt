@@ -3,6 +3,7 @@ package com.jarnocegeka.utils
 import java.io.File
 
 const val FILE_PREFIX = "src/main/resources/"
+val whiteSpaceRegex = Regex("\\s+")
 
 fun readInputFile(fileName: String): File {
     return File("$FILE_PREFIX$fileName")
@@ -10,6 +11,14 @@ fun readInputFile(fileName: String): File {
 
 fun readInputFileLines(fileName: String): List<String> {
     return readInputFile(fileName).readLines()
+}
+
+fun List<Int>.reduceToIntWithSum(): Int {
+    return this.reduce { accumulator, value -> accumulator + value }
+}
+
+fun List<Long>.reduceToLongWithSum(): Long {
+    return this.reduce { accumulator, value -> accumulator + value }
 }
 
 fun binaryToDecimal(number: String): Long {
