@@ -24,3 +24,19 @@ fun binaryToDecimal(number: String): Long {
 
     return result
 }
+
+fun splitByWhiteLine(lines: List<String>): List<List<String>> {
+    val subSets = mutableListOf<List<String>>()
+    var startIndex = 0
+
+    lines.forEachIndexed { index, line ->
+        if (line.isEmpty()) {
+            subSets.add(lines.subList(startIndex, index))
+            startIndex = index + 1
+        } else if (index == lines.size - 1) {
+            subSets.add(lines.subList(startIndex, lines.size))
+        }
+    }
+
+    return subSets
+}

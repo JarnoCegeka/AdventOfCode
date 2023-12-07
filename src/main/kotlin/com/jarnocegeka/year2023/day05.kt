@@ -1,10 +1,11 @@
 package com.jarnocegeka.year2023
 
 import com.jarnocegeka.utils.readInputFileLines
+import com.jarnocegeka.utils.splitByWhiteLine
 
 fun adventOfCodeYear2023Day05Part1() {
     val lines = readInputFileLines("year2023/InputYear2023Day05.txt")
-    val almanacInfo = splitToAlmanacInfo(lines)
+    val almanacInfo = splitByWhiteLine(lines)
     val seeds = getSimpleSeeds(almanacInfo[0])
     val productionSteps = mapToProductionSteps(almanacInfo)
     val lowestLocationNumber = determineLowestLocationNumber(seeds, productionSteps)
@@ -14,7 +15,7 @@ fun adventOfCodeYear2023Day05Part1() {
 
 fun adventOfCodeYear2023Day05Part2() {
     val lines = readInputFileLines("year2023/InputYear2023Day05.txt")
-    val almanacInfo = splitToAlmanacInfo(lines)
+    val almanacInfo = splitByWhiteLine(lines)
     val seeds = getSeeds(almanacInfo[0])
     val productionSteps = mapToProductionSteps(almanacInfo)
     val globalMin = findGlobalMin(seeds, productionSteps)
@@ -23,22 +24,6 @@ fun adventOfCodeYear2023Day05Part2() {
 }
 
 private val whiteSpaceRegex = Regex("\\s+")
-
-private fun splitToAlmanacInfo(lines: List<String>): List<List<String>> {
-    val almanac = mutableListOf<List<String>>()
-    var startIndex = 0
-
-    lines.forEachIndexed { index, line ->
-        if (line.isEmpty()) {
-            almanac.add(lines.subList(startIndex, index))
-            startIndex = index + 1
-        } else if (index == lines.size - 1) {
-            almanac.add(lines.subList(startIndex, lines.size))
-        }
-    }
-
-    return almanac
-}
 
 private fun getSimpleSeeds(lines: List<String>): List<Long> {
     return lines[0].substringAfter(":").trim().split(whiteSpaceRegex).map { it.toLong() }
