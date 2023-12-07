@@ -3,12 +3,12 @@ package com.jarnocegeka.year2020
 import com.jarnocegeka.utils.readInputFileLines
 
 fun adventOfCodeYear2020Day03Part1() {
-    val lines = readInputFileLines("InputYear2020Day03.txt")
+    val lines = readInputFileLines("year2020/InputYear2020Day03.txt")
     println(traverse(lines, 3, 1))
 }
 
 fun adventOfCodeYear2020Day03Part2() {
-    val lines = readInputFileLines("InputYear2020Day03.txt")
+    val lines = readInputFileLines("year2020/InputYear2020Day03.txt")
 
     val traversal1 = traverse(lines, 1, 1).toLong()
     val traversal2 = traverse(lines, 3, 1).toLong()

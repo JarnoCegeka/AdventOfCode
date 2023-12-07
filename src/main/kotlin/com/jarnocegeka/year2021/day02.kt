@@ -3,7 +3,7 @@ package com.jarnocegeka.year2021
 import com.jarnocegeka.utils.readInputFileLines
 
 fun adventOfCodeYear2021Day02Part1() {
-    val lines = readInputFileLines("InputYear2021Day02.txt")
+    val lines = readInputFileLines("year2021/InputYear2021Day02.txt")
 
     var position = 0
     var depth = 0
@@ -21,7 +21,7 @@ fun adventOfCodeYear2021Day02Part1() {
 }
 
 fun adventOfCodeYear2021Day02Part2() {
-    val lines = readInputFileLines("InputYear2021Day02.txt")
+    val lines = readInputFileLines("year2021/InputYear2021Day02.txt")
 
     var position = 0
     var depth = 0

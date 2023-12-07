@@ -7,11 +7,11 @@ fun adventOfCodeDay19Part1() {
 }
 
 fun adventOfCodeDay19Part2() {
-    readInputFileLines("InputYear2020Day19.txt")
+    readInputFileLines("year2020/InputYear2020Day19.txt")
 }
 
 fun checkInput() {
-    val input = readInputFileLines("InputYear2020Day19.txt")
+    val input = readInputFileLines("year2020/InputYear2020Day19.txt")
     val blankLine = input.indexOfFirst { it.isBlank() }
     val rulesTxt = input.subList(0, blankLine)
     val messages = input.subList(blankLine+1, input.size)

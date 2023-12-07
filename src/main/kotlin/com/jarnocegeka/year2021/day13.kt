@@ -4,7 +4,7 @@ import com.jarnocegeka.model.Point
 import com.jarnocegeka.utils.readInputFileLines
 
 fun adventOfCodeYear2021Day13Part1() {
-    val lines = readInputFileLines("InputYear2021Day13.txt")
+    val lines = readInputFileLines("year2021/InputYear2021Day13.txt")
     val blankLine = lines.indexOfFirst { it.isBlank() }
     val points = lines.subList(0, blankLine).map { line -> line.split(',')
         .map { it.toInt() } }
@@ -21,7 +21,7 @@ fun adventOfCodeYear2021Day13Part1() {
 }
 
 fun adventOfCodeYear2021Day13Part2() {
-    val lines = readInputFileLines("InputYear2021Day13.txt")
+    val lines = readInputFileLines("year2021/InputYear2021Day13.txt")
     val blankLine = lines.indexOfFirst { it.isBlank() }
     val points = lines.subList(0, blankLine).map { line -> line.split(',').map { it.toInt() } }.map { Point(it[0], it[1]) }
     val folds = lines.subList(blankLine+1, lines.size)

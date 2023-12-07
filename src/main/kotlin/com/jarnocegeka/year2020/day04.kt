@@ -8,7 +8,7 @@ import kotlin.text.Regex.Companion.fromLiteral
 
 val requiredFieldsPart1 = listOf("byr", "ecl", "eyr", "hcl", "hgt", "iyr", "pid")
 fun adventOfCodeYear2020Day04Part1() {
-    val fileLines = readInputFileLines("InputYear2020Day04.txt")
+    val fileLines = readInputFileLines("year2020/InputYear2020Day04.txt")
     val passwords = generatePasswords(fileLines)
 
     val validPasswords = passwords.filter { hasAllRequiredFields(it) }.count()
@@ -16,7 +16,7 @@ fun adventOfCodeYear2020Day04Part1() {
 }
 
 fun adventOfCodeYear2020Day04Part2() {
-    val fileLines = readInputFileLines("InputYear2020Day04.txt")
+    val fileLines = readInputFileLines("year2020/InputYear2020Day04.txt")
     val passwords = generatePasswords(fileLines)
 
     val validPasswords = passwords.filter { hasAllRequiredFields(it) }.filter { allPairsValid(it) }.count()

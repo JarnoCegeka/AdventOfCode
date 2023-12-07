@@ -3,7 +3,7 @@ package com.jarnocegeka.year2023
 import com.jarnocegeka.utils.readInputFileLines
 
 fun adventOfCodeYear2023Day05Part1() {
-    val lines = readInputFileLines("InputYear2023Day05.txt")
+    val lines = readInputFileLines("year2023/InputYear2023Day05.txt")
     val almanacInfo = splitToAlmanacInfo(lines)
     val seeds = getSimpleSeeds(almanacInfo[0])
     val productionSteps = mapToProductionSteps(almanacInfo)
@@ -13,7 +13,7 @@ fun adventOfCodeYear2023Day05Part1() {
 }
 
 fun adventOfCodeYear2023Day05Part2() {
-    val lines = readInputFileLines("InputYear2023Day05.txt")
+    val lines = readInputFileLines("year2023/InputYear2023Day05.txt")
     val almanacInfo = splitToAlmanacInfo(lines)
     val seeds = getSeeds(almanacInfo[0])
     val productionSteps = mapToProductionSteps(almanacInfo)

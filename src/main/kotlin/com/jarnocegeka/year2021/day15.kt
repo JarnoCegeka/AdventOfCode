@@ -5,13 +5,13 @@ import com.jarnocegeka.utils.readInputFileLines
 typealias PointDay15 = Pair<Int, Int>
 
 fun adventOfCodeYear2021Day15Part1() {
-    val lines = readInputFileLines("InputYear2021Day15.txt")
+    val lines = readInputFileLines("year2021/InputYear2021Day15.txt")
     val input = lines.map { line -> line.map { it.digitToInt() } }
     println(solveRecursive(input, mapOf((0 to 0) to 0)).toLong())
 }
 
 fun adventOfCodeYear2021Day15Part2() {
-    val lines = readInputFileLines("InputYear2021Day15.txt")
+    val lines = readInputFileLines("year2021/InputYear2021Day15.txt")
     val input = lines.map { line -> line.map { it.digitToInt() } }
     println(solveRecursive(enlargeMap(input), mapOf((0 to 0) to 0)).toLong())
 }

@@ -3,7 +3,7 @@ package com.jarnocegeka.year2020
 import com.jarnocegeka.utils.readInputFileLines
 
 fun adventOfCodeYear2020Day06Part1() {
-    val fileLines = readInputFileLines("InputYear2020Day06.txt")
+    val fileLines = readInputFileLines("year2020/InputYear2020Day06.txt")
 
     val yesForEachGroup = mutableListOf<Int>()
     var countPerGroup = 0
@@ -29,7 +29,7 @@ fun adventOfCodeYear2020Day06Part1() {
 }
 
 fun adventOfCodeYear2020Day06Part2() {
-    val fileLines = readInputFileLines("InputYear2020Day06.txt")
+    val fileLines = readInputFileLines("year2020/InputYear2020Day06.txt")
 
     val yesForEachGroup = mutableListOf<Int>()
     var personCount = 0

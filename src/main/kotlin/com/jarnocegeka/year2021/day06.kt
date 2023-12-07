@@ -3,7 +3,7 @@ package com.jarnocegeka.year2021
 import com.jarnocegeka.utils.readInputFileLines
 
 fun adventOfCodeYear2021Day06Part1() {
-    val fishTimers = readInputFileLines("InputYear2021Day06.txt")[0].split(',').map { it.toInt() }
+    val fishTimers = readInputFileLines("year2021/InputYear2021Day06.txt")[0].split(',').map { it.toInt() }
 
     var newFishTimers = fishTimers
     repeat(80) {
@@ -16,7 +16,7 @@ fun adventOfCodeYear2021Day06Part1() {
 }
 
 fun adventOfCodeYear2021Day06Part2() {
-    val fishTimers = readInputFileLines("InputYear2021Day06.txt")[0].split(',').map { it.toLong() }
+    val fishTimers = readInputFileLines("year2021/InputYear2021Day06.txt")[0].split(',').map { it.toLong() }
     val fishTimerCounters = (0L..8L).associateWith { 0L }.toMutableMap()
     fishTimers.forEach { fishTimerCounters[it] = fishTimerCounters[it]!! + 1L }
 

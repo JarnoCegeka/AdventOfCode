@@ -5,7 +5,7 @@ import com.jarnocegeka.utils.readInputFileLines
 const val ACC = "acc"
 const val JMP = "jmp"
 const val NOP = "nop"
-val fileLines = readInputFileLines("InputYear2020Day08.txt").toMutableList()
+val fileLines = readInputFileLines("year2020/InputYear2020Day08.txt").toMutableList()
 
 fun adventOfCodeYear2020Day08Part1() {
     val bug = runProgram()

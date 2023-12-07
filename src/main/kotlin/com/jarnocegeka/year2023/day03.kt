@@ -3,7 +3,7 @@ package com.jarnocegeka.year2023
 import com.jarnocegeka.utils.readInputFileLines
 
 fun adventOfCodeYear2023Day03Part1() {
-    val lines = readInputFileLines("InputYear2023Day03.txt")
+    val lines = readInputFileLines("year2023/InputYear2023Day03.txt")
     val lineInfoByIndex = mapToLineInfo(lines)
     val result = calculateValidPartResult(lineInfoByIndex)
 
@@ -11,7 +11,7 @@ fun adventOfCodeYear2023Day03Part1() {
 }
 
 fun adventOfCodeYear2023Day03Part2() {
-    val lines = readInputFileLines("InputYear2023Day03.txt")
+    val lines = readInputFileLines("year2023/InputYear2023Day03.txt")
     val lineInfoByIndex = mapToLineInfo(lines)
     val result = calculateGearRatioResult(lineInfoByIndex)
 

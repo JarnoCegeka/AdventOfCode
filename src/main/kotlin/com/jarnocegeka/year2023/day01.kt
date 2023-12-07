@@ -3,13 +3,13 @@ package com.jarnocegeka.year2023
 import com.jarnocegeka.utils.readInputFileLines
 
 fun adventOfCodeYear2023Day01Part1() {
-    val lines = readInputFileLines("InputYear2023Day01.txt")
+    val lines = readInputFileLines("year2023/InputYear2023Day01.txt")
 
     println(decodeSimpleCalibrationDocument(lines))
 }
 
 fun adventOfCodeYear2023Day01Part2() {
-    val lines = readInputFileLines("InputYear2023Day01.txt")
+    val lines = readInputFileLines("year2023/InputYear2023Day01.txt")
 
     println(decodeCalibrationDocument(lines))
 }

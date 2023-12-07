@@ -4,14 +4,14 @@ import com.jarnocegeka.utils.readInputFileLines
 
 fun adventOfCodeYear2021Day16Part1() {
     val binaryString =
-        readInputFileLines("InputYear2021Day16.txt")[0].map { it.digitToInt(16).toString(2).padStart(4, '0') }
+        readInputFileLines("year2021/InputYear2021Day16.txt")[0].map { it.digitToInt(16).toString(2).padStart(4, '0') }
             .joinToString("")
     println(parse(binaryString).sumOfVersions())
 }
 
 fun adventOfCodeYear2021Day16Part2() {
     val binaryString =
-        readInputFileLines("InputYear2021Day16.txt")[0].map { it.digitToInt(16).toString(2).padStart(4, '0') }
+        readInputFileLines("year2021/InputYear2021Day16.txt")[0].map { it.digitToInt(16).toString(2).padStart(4, '0') }
             .joinToString("")
     println(parse(binaryString).value())
 }

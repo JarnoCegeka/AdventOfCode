@@ -6,7 +6,7 @@ import java.lang.IllegalStateException
 import java.util.Comparator
 
 fun adventOfCodeYear2023Day06Part1() {
-    val lines = readInputFileLines("InputYear2023Day06.txt")
+    val lines = readInputFileLines("year2023/InputYear2023Day06.txt")
     val camelCardsGame = mapToCamelCardsGame(lines)
     val ranking = determineRanking(camelCardsGame)
 
@@ -14,7 +14,7 @@ fun adventOfCodeYear2023Day06Part1() {
 }
 
 fun adventOfCodeYear2023Day06Part2() {
-    val lines = readInputFileLines("InputYear2023Day06.txt")
+    val lines = readInputFileLines("year2023/InputYear2023Day06.txt")
     val camelCardsGame = mapToCamelCardsGame(lines, true)
     val ranking = determineRanking(camelCardsGame)
 

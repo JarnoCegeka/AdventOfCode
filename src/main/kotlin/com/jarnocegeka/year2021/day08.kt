@@ -4,7 +4,7 @@ import com.jarnocegeka.utils.readInputFileLines
 
 fun adventOfCodeYear2021Day08Part1() {
     val numberOfSegmentsOfEasySevenSegmentNumbers = listOf(2, 3, 4, 7)
-    val combinations = readInputFileLines("InputYear2021Day08.txt")
+    val combinations = readInputFileLines("year2021/InputYear2021Day08.txt")
         .map { line -> line.split(" | ").map { it.split(' ').toTypedArray() }.toTypedArray() }
 
     var count = 0
@@ -16,7 +16,7 @@ fun adventOfCodeYear2021Day08Part1() {
 }
 
 fun adventOfCodeYear2021Day08Part2() {
-    val combinations = readInputFileLines("InputYear2021Day08.txt")
+    val combinations = readInputFileLines("year2021/InputYear2021Day08.txt")
         .map { line -> line.split(" | ").map { it.split(' ').map { code -> sortString(code) }.toTypedArray() }.toTypedArray() }
 
     val result = combinations.map { combination ->

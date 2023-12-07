@@ -4,7 +4,7 @@ import com.jarnocegeka.model.Point
 import com.jarnocegeka.utils.readInputFileLines
 
 fun adventOfCodeYear2021Day05Part1() {
-    val lineStrings = readInputFileLines("InputYear2021Day05.txt")
+    val lineStrings = readInputFileLines("year2021/InputYear2021Day05.txt")
     val lines = lineStrings.map { toLine(it) }.filterNot { it.isDiagonal() }
 
     val result = retrieveOverlappingCount(lines)
@@ -12,7 +12,7 @@ fun adventOfCodeYear2021Day05Part1() {
 }
 
 fun adventOfCodeYear2021Day05Part2() {
-    val lineStrings = readInputFileLines("InputYear2021Day05.txt")
+    val lineStrings = readInputFileLines("year2021/InputYear2021Day05.txt")
     val lines = lineStrings.map { toLine(it) }
 
     val result = retrieveOverlappingCount(lines)

@@ -2,7 +2,7 @@ package com.jarnocegeka.year2020
 
 import com.jarnocegeka.utils.readInputFile
 
-private val input = readInputFile("InputYear2020Day13.txt").readLines()
+private val input = readInputFile("year2020/InputYear2020Day13.txt").readLines()
 fun adventOfCodeYear2020Day13Part1() {
     calculateEarliestBus()
 }

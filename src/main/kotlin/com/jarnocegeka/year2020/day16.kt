@@ -26,7 +26,7 @@ private fun isInRange(num: Int, range: Pair<Int, Int>): Boolean {
 }
 
 private fun ticketInput(): TicketInput {
-    val input = readInputFileLines("InputYear2020Day16.txt")
+    val input = readInputFileLines("year2020/InputYear2020Day16.txt")
 
     val indexOfYourTicket = input.indexOf("your ticket:")
     val indexOfNearbyTickets = input.indexOf("nearby tickets:")
@@ -60,7 +60,7 @@ fun adventOfCodeYear2020Day16Part2() {
 }
 
 private fun executePart2(): Long {
-    val input = readInputFile("InputYear2020Day16.txt")
+    val input = readInputFile("year2020/InputYear2020Day16.txt")
     var state = 0
     val rules = mutableSetOf<Rule>()
     val lines = input.readLines()

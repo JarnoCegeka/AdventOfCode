@@ -3,7 +3,7 @@ package com.jarnocegeka.year2021
 import com.jarnocegeka.utils.readInputFileLines
 
 fun adventOfCodeYear2021Day09Part1() {
-    val lines = readInputFileLines("InputYear2021Day09.txt")
+    val lines = readInputFileLines("year2021/InputYear2021Day09.txt")
     val locations = lines.map { line -> line.toCharArray().map { it.digitToInt() }.toIntArray() }.toTypedArray()
 
     val lowPoints = findLowPoints(locations)
@@ -13,7 +13,7 @@ fun adventOfCodeYear2021Day09Part1() {
 }
 
 fun adventOfCodeYear2021Day09Part2() {
-    val lines = readInputFileLines("InputYear2021Day09.txt")
+    val lines = readInputFileLines("year2021/InputYear2021Day09.txt")
     val locations = lines.map { line -> line.toCharArray().map { it.digitToInt() }.toIntArray() }.toTypedArray()
 
     val lowPoints = findLowPoints(locations)

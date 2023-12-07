@@ -193,7 +193,7 @@ private fun printChanges(ferryLayout: Array<CharArray>, prevFerryLayout: Array<C
 }
 
 private fun ferryLayout(): Array<CharArray> {
-    val input = readInputFileLines("InputYear2020Day11.txt")
+    val input = readInputFileLines("year2020/InputYear2020Day11.txt")
     val ferryLayout = mutableListOf<CharArray>()
 
     input.forEach {

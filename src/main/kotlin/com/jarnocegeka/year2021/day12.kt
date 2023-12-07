@@ -51,7 +51,7 @@ fun adventOfCodeYear2021Day12Part2() {
 
 fun caveNeighbours(): Map<String, Set<String>> {
     val caveNeighbours = mutableMapOf<String, MutableSet<String>>()
-    readInputFileLines("InputYear2021Day12.txt").forEach { line ->
+    readInputFileLines("year2021/InputYear2021Day12.txt").forEach { line ->
             val caves = line.split('-')
             val a = caves[0]
             val b = caves[1]

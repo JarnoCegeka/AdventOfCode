@@ -3,7 +3,7 @@ package com.jarnocegeka.year2020
 import com.jarnocegeka.utils.readInputFile
 
 fun adventOfCodeYear2020Day02Part1() {
-    val file = readInputFile("InputYear2020Day02.txt")
+    val file = readInputFile("year2020/InputYear2020Day02.txt")
 
     var validPwCount = 0
     file.forEachLine {
@@ -22,7 +22,7 @@ fun adventOfCodeYear2020Day02Part1() {
 }
 
 fun adventOfCodeYear2020Day02Part2() {
-    val file = readInputFile("InputYear2020Day02.txt")
+    val file = readInputFile("year2020/InputYear2020Day02.txt")
 
     var validPwCount = 0
     file.forEachLine {

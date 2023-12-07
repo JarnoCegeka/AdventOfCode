@@ -3,7 +3,7 @@ package com.jarnocegeka.year2020
 import com.jarnocegeka.utils.readInputFileLines
 
 fun adventOfCodeYear2020Day10Part1() {
-    val inputV1 = readInputFileLines("InputYear2020Day10.txt").map { it.toInt() }.toMutableList()
+    val inputV1 = readInputFileLines("year2020/InputYear2020Day10.txt").map { it.toInt() }.toMutableList()
     inputV1.add(inputV1.maxOrNull()!! + 3)
     val input = inputV1.sorted()
     val joltDifferences = joltDifferences(input)
@@ -16,7 +16,7 @@ fun adventOfCodeYear2020Day10Part1() {
 }
 
 fun adventOfCodeYear2020Day10Part2() {
-    val input = readInputFileLines("InputYear2020Day10.txt").map { it.toInt() }.toMutableList()
+    val input = readInputFileLines("year2020/InputYear2020Day10.txt").map { it.toInt() }.toMutableList()
     input.add(input.maxOrNull()!! + 3)
     input.sort()
 

@@ -13,7 +13,7 @@ fun adventOfCodeYear2020Day15Part2() {
 }
 
 private fun calculateNumberForPosition(num: Int): Int {
-    val input = readInputFileLines("InputYear2020Day15.txt").map { it.split(",") }.flatMap { it.toList() }.map { it.toInt() }
+    val input = readInputFileLines("year2020/InputYear2020Day15.txt").map { it.split(",") }.flatMap { it.toList() }.map { it.toInt() }
     val lastSpokenNumberIndexes = mutableMapOf<Int, MutableList<Int>>()
     val array = IntArray(num+5)
 

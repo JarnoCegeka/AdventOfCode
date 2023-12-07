@@ -3,7 +3,7 @@ package com.jarnocegeka.year2021
 import com.jarnocegeka.utils.readInputFileLines
 
 fun adventOfCodeYear2021Day04Part1() {
-    val lines = readInputFileLines("InputYear2021Day04.txt").toMutableList()
+    val lines = readInputFileLines("year2021/InputYear2021Day04.txt").toMutableList()
     val drawnNumbers = lines[0].split(',').map { it.toInt() }
     val bingoBoards = createBingoBoards(lines)
 
@@ -36,7 +36,7 @@ fun adventOfCodeYear2021Day04Part1() {
 }
 
 fun adventOfCodeYear2021Day04Part2() {
-    val lines = readInputFileLines("InputYear2021Day04.txt")
+    val lines = readInputFileLines("year2021/InputYear2021Day04.txt")
     val drawnNumbers = lines[0].split(',').map { it.toInt() }
     val bingoBoards = createBingoBoards(lines)
 

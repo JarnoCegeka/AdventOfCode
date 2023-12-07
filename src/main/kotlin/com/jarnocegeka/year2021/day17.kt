@@ -3,7 +3,7 @@ package com.jarnocegeka.year2021
 import com.jarnocegeka.utils.readInputFileLines
 
 fun adventOfCodeYear2021Day17Part1() {
-    val lines = readInputFileLines("InputYear2021Day17.txt")
+    val lines = readInputFileLines("year2021/InputYear2021Day17.txt")
     val targetArea = Rect(34..67, -215..-186)
 
     val highestValidYs = mutableSetOf<Int>()
@@ -26,7 +26,7 @@ fun adventOfCodeYear2021Day17Part1() {
 }
 
 fun adventOfCodeYear2021Day17Part2() {
-    val lines = readInputFileLines("InputYear2021Day17.txt")
+    val lines = readInputFileLines("year2021/InputYear2021Day17.txt")
     val targetArea = Rect(34..67, -215..-186)
 
     val solutions = mutableSetOf<Pair<Int, Int>>()

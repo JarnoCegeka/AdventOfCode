@@ -3,14 +3,14 @@ package com.jarnocegeka.year2020
 import com.jarnocegeka.utils.readInputFileLines
 
 fun adventOfCodeYear2020Day09Part1() {
-    val input = readInputFileLines("InputYear2020Day09.txt").map { it.toLong() }
+    val input = readInputFileLines("year2020/InputYear2020Day09.txt").map { it.toLong() }
     val numberNotFound = findIdiotNumber(input)
 
     println(numberNotFound)
 }
 
 fun adventOfCodeYear2020Day09Part2() {
-    val input = readInputFileLines("InputYear2020Day09.txt").map { it.toLong() }
+    val input = readInputFileLines("year2020/InputYear2020Day09.txt").map { it.toLong() }
     val numberNotFound = findIdiotNumber(input)
 
     val contiguousSet = findContiguousSet(numberNotFound, input)

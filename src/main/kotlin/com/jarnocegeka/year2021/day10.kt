@@ -3,7 +3,7 @@ package com.jarnocegeka.year2021
 import com.jarnocegeka.utils.readInputFileLines
 
 fun adventOfCodeYear2021Day10Part1() {
-    val lines = readInputFileLines("InputYear2021Day10.txt").map { it.toMutableList() }
+    val lines = readInputFileLines("year2021/InputYear2021Day10.txt").map { it.toMutableList() }
 
     val illegalCharacters = mutableListOf<Char>()
     lines.forEach { line ->
@@ -32,7 +32,7 @@ fun adventOfCodeYear2021Day10Part1() {
 }
 
 fun adventOfCodeYear2021Day10Part2() {
-    val lines = readInputFileLines("InputYear2021Day10.txt").map { it.toMutableList() }
+    val lines = readInputFileLines("year2021/InputYear2021Day10.txt").map { it.toMutableList() }
     val incompleteLines = findCharactersToClose(lines)
 
     val scores = incompleteLines.map { line ->

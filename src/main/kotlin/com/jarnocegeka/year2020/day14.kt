@@ -83,7 +83,7 @@ private fun findNextCombo(floatingBinary: String, firstCount: Int, comboStarter:
 private fun maskInput(): Map<String, List<Pair<Long, Long>>> {
     val maskMap = mutableMapOf<String, MutableList<Pair<Long, Long>>>()
     var currentMask = ""
-    readInputFileLines("InputYear2020Day14.txt").forEach {
+    readInputFileLines("year2020/InputYear2020Day14.txt").forEach {
         if (it.startsWith("mask")) {
             currentMask = it.substringAfter(" = ")
             maskMap[currentMask] = mutableListOf()

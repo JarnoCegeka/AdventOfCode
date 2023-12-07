@@ -4,7 +4,7 @@ import com.jarnocegeka.utils.readInputFileLines
 import java.util.Comparator.comparing
 
 fun adventOfCodeYear2021Day07Part1() {
-    val positions = readInputFileLines("InputYear2021Day07.txt")[0].split(',').map { it.toInt() }
+    val positions = readInputFileLines("year2021/InputYear2021Day07.txt")[0].split(',').map { it.toInt() }
     val minPosition = positions.minOrNull()!!
     val maxPosition = positions.maxOrNull()!!
 
@@ -24,7 +24,7 @@ fun adventOfCodeYear2021Day07Part1() {
 }
 
 fun adventOfCodeYear2021Day07Part2() {
-    val positions = readInputFileLines("InputYear2021Day07.txt")[0].split(',').map { it.toInt() }
+    val positions = readInputFileLines("year2021/InputYear2021Day07.txt")[0].split(',').map { it.toInt() }
     val minPosition = positions.minOrNull()!!
     val maxPosition = positions.maxOrNull()!!
 

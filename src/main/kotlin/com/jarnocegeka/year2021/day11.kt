@@ -18,7 +18,7 @@ fun adventOfCodeYear2021Day11Part2() {
 }
 
 private fun readOctopuses(): OctopusMap {
-    val lines = readInputFileLines("InputYear2021Day11.txt")
+    val lines = readInputFileLines("year2021/InputYear2021Day11.txt")
 
     return OctopusMap(lines.mapIndexed { y, line ->
         line.toList().mapIndexed { x, energyLevel -> Pair(Point(x, y), energyLevel.digitToInt()) }

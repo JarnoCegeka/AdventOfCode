@@ -3,7 +3,7 @@ package com.jarnocegeka.year2023
 import com.jarnocegeka.utils.readInputFileLines
 
 fun adventOfCodeYear2023Day04Part1() {
-    val lines = readInputFileLines("InputYear2023Day04.txt")
+    val lines = readInputFileLines("year2023/InputYear2023Day04.txt")
     val scratchCards = mapToScratchCards(lines)
     val result = validateScratchCards(scratchCards)
 
@@ -11,7 +11,7 @@ fun adventOfCodeYear2023Day04Part1() {
 }
 
 fun adventOfCodeYear2023Day04Part2() {
-    val lines = readInputFileLines("InputYear2023Day04.txt")
+    val lines = readInputFileLines("year2023/InputYear2023Day04.txt")
     val scratchCards = mapToScratchCards(lines)
     val scratchCardsByCardId = scratchCards.associate { Pair(it.cardId, mutableListOf(it)) }
     val result = calculateTotalAmountOfScratchCards(scratchCardsByCardId)

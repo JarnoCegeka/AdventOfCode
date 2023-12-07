@@ -3,7 +3,7 @@ package com.jarnocegeka.year2020
 import com.jarnocegeka.utils.readInputFileLines
 
 fun adventOfCodeYear2020Day01Part1() {
-    val lines = readInputFileLines("InputYear2020Day01.txt")
+    val lines = readInputFileLines("year2020/InputYear2020Day01.txt")
 
     for (i in lines) l@{
         for (j in lines.subList(1, lines.size)) {
@@ -17,7 +17,7 @@ fun adventOfCodeYear2020Day01Part1() {
 }
 
 fun adventOfCodeYear2020Day01Part2() {
-    val lines = readInputFileLines("InputYear2020Day01.txt")
+    val lines = readInputFileLines("year2020/InputYear2020Day01.txt")
 
     for (i in lines) {
         for (j in lines.subList(1, lines.size)) {

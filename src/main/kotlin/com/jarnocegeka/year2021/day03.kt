@@ -4,7 +4,7 @@ import com.jarnocegeka.utils.binaryToDecimal
 import com.jarnocegeka.utils.readInputFileLines
 
 fun adventOfCodeYear2021Day03Part1() {
-    val lines = readInputFileLines("InputYear2021Day03.txt")
+    val lines = readInputFileLines("year2021/InputYear2021Day03.txt")
 
     val binarySize = lines[0].length
     val ones = MutableList(binarySize) { 0 }
@@ -43,7 +43,7 @@ fun adventOfCodeYear2021Day03Part1() {
 }
 
 fun adventOfCodeYear2021Day03Part2() {
-    val lines = readInputFileLines("InputYear2021Day03.txt")
+    val lines = readInputFileLines("year2021/InputYear2021Day03.txt")
 
     val binarySize = lines[0].length
     var oneCount1 = 0
