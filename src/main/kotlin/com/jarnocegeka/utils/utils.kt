@@ -1,6 +1,7 @@
 package com.jarnocegeka.utils
 
 import java.io.File
+import java.lang.IllegalStateException
 
 const val FILE_PREFIX = "src/main/resources/"
 val whiteSpaceRegex = Regex("\\s+")
