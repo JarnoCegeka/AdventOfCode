@@ -22,6 +22,14 @@ fun List<Long>.reduceToLongWithSum(): Long {
     return this.reduce { accumulator, value -> accumulator + value }
 }
 
+fun IntRange.fullyContains(other: IntRange): Boolean {
+    return this.contains(other.first) && this.contains(other.last)
+}
+
+fun IntRange.overlaps(other: IntRange): Boolean {
+    return this.contains(other.first) || this.contains(other.last)
+}
+
 fun binaryToDecimal(number: String): Long {
     var result: Long = 0
     var bit = 0
