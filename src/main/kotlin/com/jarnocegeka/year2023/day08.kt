@@ -1,5 +1,6 @@
 package com.jarnocegeka.year2023
 
+import com.jarnocegeka.utils.lcm
 import com.jarnocegeka.utils.readInputFileLines
 
 fun adventOfCodeYear2023Day08Part1() {
@@ -65,22 +66,6 @@ private fun traverseMapMulti(mapElements: List<MapElement>, instructions: String
     val positions = currentPositions.associateWith { traverseMapWithDestinationEndingOn(mapElements, instructions, it, destinationsEndingOn) }.map { it.value.second }
 
     return lcm(positions)
-}
-
-fun gcd(a: Long, b: Long): Long {
-    if (b == 0L) return a
-
-    return gcd(b, a % b)
-}
-
-fun lcm(a: Long, b: Long): Long {
-    return a * (b / gcd(a, b));
-}
-
-fun lcm(input: List<Long>): Long {
-    var result = input[0]
-    (1 until input.size).forEach { result = lcm(result, input[it]) }
-    return result
 }
 
 private class MapElement(val value: String, val left: String, val right: String) {

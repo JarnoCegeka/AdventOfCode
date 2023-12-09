@@ -1,7 +1,6 @@
 package com.jarnocegeka.utils
 
 import java.io.File
-import java.lang.IllegalStateException
 
 const val FILE_PREFIX = "src/main/resources/"
 val whiteSpaceRegex = Regex("\\s+")
@@ -28,6 +27,26 @@ fun IntRange.fullyContains(other: IntRange): Boolean {
 
 fun IntRange.overlaps(other: IntRange): Boolean {
     return this.contains(other.first) || this.contains(other.last)
+}
+
+fun gcd(input: List<Long>): Long {
+    return input.reduce { acc, a -> gcd(acc, a) }
+}
+
+fun gcd(a: Long, b: Long): Long {
+    if (b == 0L) return a
+
+    return gcd(b, a % b)
+}
+
+fun lcm(a: Long, b: Long): Long {
+    return a * (b / gcd(a, b));
+}
+
+fun lcm(input: List<Long>): Long {
+    var result = input[0]
+    (1 until input.size).forEach { result = lcm(result, input[it]) }
+    return result
 }
 
 fun binaryToDecimal(number: String): Long {
