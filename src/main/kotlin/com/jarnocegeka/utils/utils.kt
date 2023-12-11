@@ -21,6 +21,10 @@ fun List<Long>.reduceToLongWithSum(): Long {
     return this.reduce { accumulator, value -> accumulator + value }
 }
 
+fun List<Double>.reduceToDoubleWithSum(): Double {
+    return this.reduce { accumulator, value -> accumulator + value }
+}
+
 fun IntRange.fullyContains(other: IntRange): Boolean {
     return this.contains(other.first) && this.contains(other.last)
 }
@@ -47,6 +51,10 @@ fun lcm(input: List<Long>): Long {
     var result = input[0]
     (1 until input.size).forEach { result = lcm(result, input[it]) }
     return result
+}
+
+fun calculateAmountOfPairs(n: Int): Int {
+    return n * (n - 1) / 2
 }
 
 fun binaryToDecimal(number: String): Long {

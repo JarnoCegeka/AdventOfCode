@@ -1,23 +1,25 @@
 package com.jarnocegeka.year2023
 
 import com.jarnocegeka.model.Coordinate
-import com.jarnocegeka.utils.readInputFileLines
+import com.jarnocegeka.utils.*
 
 fun adventOfCodeYear2023Day11Part1() {
     val lines = readInputFileLines("year2023/InputYear2023Day11.txt")
-    val universe = mapToUniverse(lines)
-    universe.expandUniverse()
-
-    universe.print()
-
-    //Find Rows and Columns fully made of points
-    //Expand universe
-
-    //Formula to calculate pairs of n numbers => n*(n-1)/2
+    runUniversePathSimulator(lines, 1)
 }
 
 fun adventOfCodeYear2023Day11Part2() {
     val lines = readInputFileLines("year2023/InputYear2023Day11.txt")
+    runUniversePathSimulator(lines, 999999)
+}
+
+private fun runUniversePathSimulator(lines: List<String>, expansion: Int) {
+    val universe = mapToUniverse(lines)
+    universe.expandUniverse(expansion)
+
+    val galaxyPairs = universe.galaxyPairs()
+    val aStarSearchWithManhattanDistance = galaxyPairs.associateWith { aStarSearchWithManhattanDistance(it.first, it.second) }.values.toList().reduceToLongWithSum()
+    println("Result with expansion of $expansion: $aStarSearchWithManhattanDistance")
 }
 
 private fun mapToUniverse(lines: List<String>): Universe {
@@ -30,41 +32,36 @@ private fun mapToSpaces(line: String, y: Int): List<Space> {
 
 private class Universe(var spaces: List<List<Space>>) {
     fun flatSpaces() = spaces.flatten().toMutableList()
-    fun expandUniverse() {
-        expandSpaceRows()
-        expandSpaceColumns()
+    fun expandUniverse(expansion: Int = 1) {
+        expandSpaceRows(expansion)
+        expandSpaceColumns(expansion)
     }
 
-    private fun expandSpaceRows() {
+    private fun expandSpaceRows(expansion: Int) {
         val flatSpaces = flatSpaces()
         val spaceColumnSize = spaces.first().size
         val rowsToExpand = (0 until spaceColumnSize)
-            .filter { flatSpaces.count { space -> space.coordinate.y == it && !space.isGalaxy() } == spaceColumnSize }
+                .filter { flatSpaces.count { space -> space.coordinate.y == it && !space.isGalaxy() } == spaceColumnSize }
 
-        rowsToExpand.forEach { y -> flatSpaces.filter { it.coordinate.y > y }.forEach { it.coordinate.y += 1 } }
-
-        val rowsToAdd = (0 until spaceColumnSize).flatMap { x -> rowsToExpand.map { y -> Space('.', Coordinate(x, y + 1)) } }
-        flatSpaces.addAll(rowsToAdd)
-        spaces = flatSpaces.sortedBy { it.coordinate.y }.groupBy { it.coordinate.y }.values.map { it.sortedBy { column -> column.coordinate.x } }.toList()
+        rowsToExpand.forEachIndexed { index, y -> flatSpaces.filter { it.coordinate.y > y + (index * expansion) }.forEach { it.coordinate.y += expansion } }
     }
 
-    private fun expandSpaceColumns() {
+    private fun expandSpaceColumns(expansion: Int) {
         val flatSpaces = flatSpaces()
         val spaceRowSize = spaces.size
         val columnsToExpand = (0 until spaceRowSize)
             .filter { flatSpaces.count { space -> space.coordinate.x == it && !space.isGalaxy() } == spaceRowSize }
 
-        columnsToExpand.forEach { x -> flatSpaces.filter { it.coordinate.x > x }.forEach { it.coordinate.x += 1 } }
-
-        val columnsToAdd = (0 until spaceRowSize).flatMap { y -> columnsToExpand.map { x -> Space('.', Coordinate(x + 1, y)) } }
-        flatSpaces.addAll(columnsToAdd)
-        spaces = flatSpaces.sortedBy { it.coordinate.y }.groupBy { it.coordinate.y }.values.map { it.sortedBy { column -> column.coordinate.x } }.toList()
+        columnsToExpand.forEachIndexed { index, x -> flatSpaces.filter { it.coordinate.x > x + (index * expansion) }.forEach { it.coordinate.x += expansion } }
     }
 
-    fun print() {
-        spaces.forEach { row ->
-            row.forEach { print("${it.value} ") }
-            println()
+    fun galaxyPairs(): List<Pair<Coordinate, Coordinate>> {
+        val galaxies = flatSpaces().filter { it.isGalaxy() }
+        val galaxiesCopy = galaxies.toMutableList()
+
+        return galaxies.flatMap { galaxy ->
+            galaxiesCopy.removeIf { it.coordinate == galaxy.coordinate }
+            galaxiesCopy.map { Pair(galaxy.coordinate, it.coordinate) }
         }
     }
 }

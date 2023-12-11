@@ -1,5 +1,8 @@
 package com.jarnocegeka.model
 
+import kotlin.math.pow
+import kotlin.math.sqrt
+
 data class Coordinate(var x: Int, var y: Int) {
     override fun equals(other: Any?): Boolean {
         if (other == null) return false
@@ -15,6 +18,10 @@ data class Coordinate(var x: Int, var y: Int) {
             Coordinate(x - 1, y),
             Coordinate(x + 1, y)
         ).filter { it.x in minX..maxX && it.y in minY..maxY }
+    }
+
+    fun calculateDistanceTo(other: Coordinate): Double {
+        return sqrt((other.x - this.x).toDouble().pow(2) + (other.y - this.y).toDouble().pow(2))
     }
 
     override fun hashCode(): Int {
