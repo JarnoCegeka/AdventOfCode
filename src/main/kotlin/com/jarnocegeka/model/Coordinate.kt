@@ -1,8 +1,6 @@
 package com.jarnocegeka.model
 
-import kotlin.math.max
-
-data class Coordinate(val x: Int, val y: Int) {
+data class Coordinate(var x: Int, var y: Int) {
     override fun equals(other: Any?): Boolean {
         if (other == null) return false
         if (other !is Coordinate) return false
