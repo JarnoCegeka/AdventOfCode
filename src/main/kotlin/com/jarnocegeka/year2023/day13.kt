@@ -74,9 +74,9 @@ private class MirrorValley(val rows: Map<Int, String>, val columns: Map<Int, Str
     }
 
     private fun doesReflectionGoToTheEnd(value: Map<Int, String>, rangeAroundMirror: IntRange, maxAmountOfDifferences: Int): Boolean {
-        if (rangeAroundMirror.first == 0 || rangeAroundMirror.last == value.size - 1) return true
-
         var differenceCounter = differencesBetween(value[rangeAroundMirror.first], value[rangeAroundMirror.last])
+        if ((rangeAroundMirror.first == 0 || rangeAroundMirror.last == value.size - 1) && differenceCounter == maxAmountOfDifferences) return true
+
         var rangeToCheck = IntRange(rangeAroundMirror.first - 1, rangeAroundMirror.last + 1)
         while (rangeToCheck.first >= 0 && rangeToCheck.last <= value.size - 1) {
             if (differenceCounter > maxAmountOfDifferences) return false
