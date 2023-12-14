@@ -91,3 +91,14 @@ fun transpose(input: List<String>): List<String> {
         input.joinToString("") { "${it[column]}" }
     }
 }
+
+fun areEqual(a: List<String>, b: List<String>): Boolean {
+    if (a.size != b.size) return false
+
+    a.forEachIndexed { index, value ->
+        if (value.length != b[index].length) return false
+        if (value != b[index]) return false
+    }
+
+    return true
+}

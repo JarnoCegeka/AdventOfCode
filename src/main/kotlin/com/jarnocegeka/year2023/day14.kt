@@ -1,8 +1,8 @@
 package com.jarnocegeka.year2023
 
+import com.jarnocegeka.utils.areEqual
 import com.jarnocegeka.utils.readInputFileLines
 import com.jarnocegeka.utils.reduceToIntWithSum
-import com.jarnocegeka.utils.reduceToLongWithSum
 import com.jarnocegeka.utils.transpose
 import kotlin.Int.Companion.MAX_VALUE
 
@@ -10,89 +10,71 @@ fun adventOfCodeYear2023Day14Part1() {
     val lines = readInputFileLines("year2023/InputYear2023Day14.txt")
     val platform = mapToPlatform(lines)
 
-//    println(platform.calculateLoad())
     println(platform.calculateLoadByRolling())
 }
 
 fun adventOfCodeYear2023Day14Part2() {
     val lines = readInputFileLines("year2023/InputYear2023Day14.txt")
+    val platform = mapToPlatform(lines)
+
+    println(platform.calculateLoadByCycling(1000000000))
 }
 
 private fun mapToPlatform(lines: List<String>): Platform {
-    return Platform(transpose(lines))
+    return Platform(lines)
 }
 
 private class Platform(val rockFormations: List<String>) {
-    fun calculateLoad(): Long {
-        return rockFormations.map { calculateLoadFor(it) }.reduceToLongWithSum()
-    }
-
     fun calculateLoadByRolling(): Int {
         return transpose(rollRockFormation()).reversed()
             .mapIndexed { index, value -> value.count { it == 'O' } * (index + 1) }
             .reduceToIntWithSum()
     }
 
-    private fun calculateLoadFor(rockFormation: String): Long {
-        if (hasCubeRocks(rockFormation)) {
-            val lastRoundRockIndex = rockFormation.lastIndexOf("O")
-            val firstCubeRockIndex = rockFormation.indexOf("#")
+    fun calculateLoadByCycling(cycleTimes: Int = 1, withPrinting: Boolean = false): Int {
+        val cycleFormations: MutableMap<Int, List<String>> = mutableMapOf()
+        var rockFormation: List<String> = rockFormations
+        cycleFormations[0] = rockFormation
+        repeat(cycleTimes) {
+            val cycledRockFormation = cycleRockFormation(rockFormation)
+            if (cycleFormations.any { formation -> areEqual(cycledRockFormation, formation.value) }) {
+                val formation = cycleFormations.entries.first { formation -> areEqual(cycledRockFormation, formation.value) }
+                val difference = it - formation.key
 
-            if (lastRoundRockIndex < firstCubeRockIndex) {
-                return calculateLoadForWithoutCubeRocks(rockFormation)
+                val i = (cycleTimes - it) % difference
+                val shouldBeFormationIndex = (i + formation.key) - 1
+                val shouldBeFormation = cycleFormations[shouldBeFormationIndex]!!
+
+                return calculateLoad(shouldBeFormation)
+            } else {
+                cycleFormations[it] = cycledRockFormation
             }
 
-            val roundRockIndexes = rockFormation.mapIndexedNotNull { index, rock -> if (rock == 'O') index else null }.sorted().toMutableList()
-            val cubeRockIndexes = rockFormation.mapIndexedNotNull { index, rock -> if (rock == '#') index else null }.sorted().toMutableList()
-
-            var load = 0L
-            var startingRockLoad = 10L
-            do {
-                var cubeRockIndex = rockFormation.length
-                if (cubeRockIndexes.isNotEmpty()) {
-                    cubeRockIndex = cubeRockIndexes.first()
-                    cubeRockIndexes.removeFirst()
-                }
-
-                val roundRocksBeforeCubeRock = roundRockIndexes.count { it < cubeRockIndex }.toLong()
-
-                if (roundRocksBeforeCubeRock > 0) {
-                    roundRockIndexes.removeIf { it < cubeRockIndex }
-                    load += calculateLoadFor(roundRocksBeforeCubeRock, startingRockLoad)
-                }
-
-                startingRockLoad = rockFormation.length.toLong() - (cubeRockIndex + 1)
-            } while (cubeRockIndexes.isNotEmpty() || roundRockIndexes.isNotEmpty())
-
-            return load
+            rockFormation = cycledRockFormation
         }
 
-        return calculateLoadForWithoutCubeRocks(rockFormation)
+        if (rockFormation.isEmpty()) return 0
+        if (withPrinting) printRockFormation(rockFormation)
+
+        return calculateLoad(rockFormation)
     }
 
-    private fun calculateLoadForWithoutCubeRocks(rockFormation: String): Long {
-        val amountOfRocks = rockFormation.count { it == 'O' }
-        if (amountOfRocks == 0) return 0
-
-        return calculateLoadFor(amountOfRocks.toLong(), rockFormation.length.toLong())
+    fun calculateLoad(rockFormation: List<String>): Int {
+        return rockFormation.reversed()
+                .mapIndexed { index, value -> value.count { it == 'O' } * (index + 1) }
+                .reduceToIntWithSum()
     }
 
-    private fun calculateLoadFor(amountOfRocks: Long, startingRockLoad: Long): Long {
-        var rockLoad = startingRockLoad
-        (1 until amountOfRocks).forEach {
-            rockLoad += startingRockLoad - it
-        }
+    private fun cycleRockFormation(rockFormation: List<String>): List<String> {
+        val north = rollRockFormation(transpose(rockFormation))
+        val west = rollRockFormation(transpose(north))
+        val south = rollRockFormation(transpose(west).map { it.reversed() })
+        val east = rollRockFormation(transpose(south.map { it.reversed() }).map { it.reversed() })
 
-        return rockLoad
+        return east.map { it.reversed() }
     }
 
-    private fun hasCubeRocks(rockFormation: String) = rockFormation.contains('#')
-
-    fun printRolledRockFormation() {
-        transpose(rollRockFormation()).forEach { println(it) }
-    }
-
-    private fun rollRockFormation() = rockFormations.map { rollRockFormation(it) }
+    private fun rollRockFormation(rockFormationToRoll: List<String> = transpose(rockFormations)) = rockFormationToRoll.map { rollRockFormation(it) }
     private fun rollRockFormation(rockFormation: String): String {
         var rolledRockFormation = rockFormation
 
@@ -117,5 +99,10 @@ private class Platform(val rockFormations: List<String>) {
         }
 
         return rolledRockFormation
+    }
+
+    private fun printRockFormation(rockFormation: List<String>) {
+        rockFormation.forEach { println(it) }
+        println()
     }
 }
