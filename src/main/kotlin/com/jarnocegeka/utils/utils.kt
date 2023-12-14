@@ -85,3 +85,9 @@ fun splitByWhiteLine(lines: List<String>): List<List<String>> {
 
     return subSets
 }
+
+fun transpose(input: List<String>): List<String> {
+    return (0 until input.first().length).map { column ->
+        input.joinToString("") { "${it[column]}" }
+    }
+}
